@@ -1,22 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thảo cute, xinh đẹp | Đại Tài</title>
+    <title>Thảo cute, xinh đẹp | Đại Tài ❤️</title>
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+    <!-- Heart particles background -->
+    <div class="hearts-container"></div>
+    
     <div class="wrapper">
-        <h2 class="question">Thảo có yêu Tài hem?</h2>
-        <img class="gif" alt="gif" src="https://media.giphy.com/media/bKyQb654tHDq72daXJ/giphy.gif"/>
-        <div class="btn-group">
-            <button class="yes-btn">Yes</button>
-            <button class="no-btn">No</button>
+        <div class="content-box">
+            <h2 class="question">Thảo có yêu Tài hem? 💕</h2>
+            <div class="gif-container">
+                <img class="gif" alt="cute gif" src="https://media.giphy.com/media/bKyQb654tHDq72daXJ/giphy.gif"/>
+            </div>
+            <div class="btn-group">
+                <button class="yes-btn">
+                    <span class="btn-text">Yes ❤️</span>
+                    <span class="btn-icon">✓</span>
+                </button>
+                <button class="no-btn">
+                    <span class="btn-text">No 💔</span>
+                    <span class="btn-icon">✗</span>
+                </button>
+            </div>
+            <div class="counter">
+                Số lần Thảo cố nhấn "No": <span id="attempt-count">0</span>
+            </div>
         </div>
     </div>
+    
+    <!-- Confetti container -->
+    <canvas id="confetti-canvas"></canvas>
+    
     <script src="script.js"></script>
 </body>
 </html>
-
-
