@@ -163,13 +163,14 @@ noBtn.addEventListener("mouseover", () => {
     attempts++;
     attemptCount.textContent = attempts;
     
-    // Get button and window dimensions
+    // Get button and content box dimensions
+    const btnGroup = document.querySelector('.btn-group');
+    const btnGroupRect = btnGroup.getBoundingClientRect();
     const noBtnRect = noBtn.getBoundingClientRect();
-    const wrapperRect = wrapper.getBoundingClientRect();
     
-    // Calculate max positions (keep button within wrapper)
-    const maxX = wrapperRect.width - noBtnRect.width - 40;
-    const maxY = wrapperRect.height - noBtnRect.height - 40;
+    // Calculate max positions (keep button within btn-group area)
+    const maxX = btnGroupRect.width - noBtnRect.width - 20;
+    const maxY = btnGroupRect.height - noBtnRect.height - 20;
     
     // Generate random position
     const randomX = Math.floor(Math.random() * maxX);
@@ -180,11 +181,10 @@ noBtn.addEventListener("mouseover", () => {
     noBtn.style.top = randomY + "px";
     
     // Increase Yes button size as user tries to click No
-    const newSize = 150 + attempts * 5;
-    if (newSize <= 250) {
-        yesBtn.style.width = newSize + 'px';
-        yesBtn.style.height = (60 + attempts * 2) + 'px';
-    }
+    const newSize = Math.min(150 + attempts * 3, 200);
+    const newHeight = Math.min(60 + attempts * 2, 80);
+    yesBtn.style.width = newSize + 'px';
+    yesBtn.style.height = newHeight + 'px';
     
     // Shake effect on question
     question.classList.add('shake');
@@ -192,15 +192,27 @@ noBtn.addEventListener("mouseover", () => {
         question.classList.remove('shake');
     }, 500);
     
-    // Change question text based on attempts
-    if (attempts === 3) {
-        question.innerHTML = "Thảo ơiii, đừng bấm Không nữa mà 🥺";
+    // Change question text progressively based on attempts
+    if (attempts === 1) {
+        question.innerHTML = "Thảo ơi, chắc chắn chưa? 🥺";
+    } else if (attempts === 2) {
+        question.innerHTML = "Tài đang buồn đó Thảo... 😢";
+    } else if (attempts === 3) {
+        question.innerHTML = "Thảo ơiii, đừng bấm No nữa mà 🥺";
+    } else if (attempts === 4) {
+        question.innerHTML = "Tài sắp khóc mất rồi 😭";
     } else if (attempts === 5) {
-        question.innerHTML = "Tài buồn lắm rồi đó Thảo 😢";
+        question.innerHTML = "Thảo thật sự không yêu Tài sao? 💔";
+    } else if (attempts === 6) {
+        question.innerHTML = "Tài rất rất buồn luôn đó 😢😢";
+    } else if (attempts === 7) {
+        question.innerHTML = "Làm ơn Thảo, yêu Tài đi mà 🙏💕";
     } else if (attempts === 8) {
-        question.innerHTML = "Xin Thảo đấy, yêu Tài đi mà 🥺💕";
+        question.innerHTML = "Xin Thảo đấy, yêu Tài một tí thôi 🥺💕";
+    } else if (attempts === 9) {
+        question.innerHTML = "Chỉ cần một cái Yes thôi Thảo ơi 😊❤️";
     } else if (attempts >= 10) {
-        question.innerHTML = "Biết rồi, Thảo yêu Tài, chỉ đang chọc Tài thôi đúng không? 😊❤️";
+        question.innerHTML = "Biết rồi, Thảo yêu Tài, chỉ đang chơi khăm Tài thôi đúng không? 😊❤️";
         // Make No button tiny
         noBtn.style.width = '50px';
         noBtn.style.height = '30px';
@@ -226,4 +238,3 @@ createFloatingHearts();
 // Add some fun messages to console
 console.log("%c❤️ Made with love by Đại Tài ❤️", "color: #e94d58; font-size: 20px; font-weight: bold;");
 console.log("%cDành tặng Thảo xinh đẹp của Tài 💕", "color: #667eea; font-size: 16px;");
-
