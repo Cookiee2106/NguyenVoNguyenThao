@@ -194,7 +194,7 @@ noBtn.addEventListener("mouseover", () => {
     
     // Change question text based on attempts
     if (attempts === 3) {
-        question.innerHTML = "Thảo ơiii, đừng bấm No nữa mà 🥺";
+        question.innerHTML = "Thảo ơiii, đừng bấm Không nữa mà 🥺";
     } else if (attempts === 5) {
         question.innerHTML = "Tài buồn lắm rồi đó Thảo 😢";
     } else if (attempts === 8) {
@@ -226,3 +226,4 @@ createFloatingHearts();
 // Add some fun messages to console
 console.log("%c❤️ Made with love by Đại Tài ❤️", "color: #e94d58; font-size: 20px; font-weight: bold;");
 console.log("%cDành tặng Thảo xinh đẹp của Tài 💕", "color: #667eea; font-size: 16px;");
+
