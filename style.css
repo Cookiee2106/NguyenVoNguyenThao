@@ -121,9 +121,10 @@ h2 {
 
 .btn-group {
     width: 100%;
-    height: 60px;
+    min-height: 200px;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
     margin-top: 40px;
     position: relative;
@@ -166,6 +167,7 @@ button:hover::before {
 .yes-btn {
     background: linear-gradient(135deg, #e94d58, #ff6b9d);
     box-shadow: 0 5px 20px rgba(233, 77, 88, 0.4);
+    position: relative;
 }
 
 .yes-btn:hover {
